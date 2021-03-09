@@ -12,19 +12,15 @@ mongoose.connect(process.env.DB_URL, {
 });
 
 mongoose.connection.on('connected', () => {
-    console.log('====================================');
     console.log('Database connectd');
-    console.log('====================================');
 })
 mongoose.connection.on('error', () => {
-    console.log('====================================');
     console.log('Database Failed');
-    console.log('====================================');
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/', batchRouter)
+app.use('/', batchRouter);
 
 const PORT = process.env.PORT || 5000;
 
@@ -33,9 +29,7 @@ app.listen(PORT, (err) => {
         console.log(err);
 
     }
-    console.log('====================================');
     console.log(`server is ready ${PORT}`);
-    console.log('====================================');
 })
 
 module.exports = app

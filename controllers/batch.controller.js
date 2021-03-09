@@ -13,7 +13,6 @@ batchController.getAll = async (req, res) => {
 }
 
 batchController.create = async (req, res) => {
-    console.log(req.body)
     const {number, size, color, quantity} = req.body;
     try {
         const batch = await Batch.create({number, size, color, quantity});
